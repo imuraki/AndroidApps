@@ -1,7 +1,7 @@
 /**
  * a. Assignment #2
  * b. File Name.: inClass02
- * c. Full name of students of Group 20.: SANU DAS, AKHIL CHUNDARATHIL, RAVI THEJA GOALLA
+ * c. Full name of students of Group 20 : SANU DAS, AKHIL CHUNDARATHIL, RAVI THEJA GOALLA.
  */
 package com.example.inclass02;
 
