@@ -1,13 +1,7 @@
-/**
- * a. InClass04
- * b. File Name.: InClass04
- * c. Full name of students of Groups1 41.: AKHIL CHUNDARATHIL, RAVI THEJA GOALLA
- */
-package com.example.async;
+package com.example.inclass04;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -17,11 +11,14 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.async.R;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+/**
+ * a. InClass04
+ * b. File Name.: InClass04
+ * c. Full name of students of Groups1 41.: AKHIL CHUNDARATHIL, RAVI THEJA GOALLA
+ */
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -30,9 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout complexitylayout;
     private TextView complexity,min,max,avg;
     private ProgressBar pb;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
     }
 
     @Override
@@ -83,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         new Async().execute(seekbar.getProgress());
     }
 
-    protected class Async extends AsyncTask<Integer,String, ArrayList<Double>>{
+    protected class Async extends AsyncTask<Integer,String, ArrayList<Double>> {
 
         @Override
         protected void onPreExecute() {

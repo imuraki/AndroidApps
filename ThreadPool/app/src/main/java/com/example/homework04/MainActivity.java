@@ -1,15 +1,10 @@
-/**
- * a. InClass04
- * b. File Name.: InClass04
- * c. Full name of students of Groups1 41.: AKHIL CHUNDARATHIL, RAVI THEJA GOALLA
- */
-package com.example.async;
+//Group
+package com.example.homework04;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -17,11 +12,9 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.async.R;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -30,21 +23,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout complexitylayout;
     private TextView complexity,min,max,avg;
     private ProgressBar pb;
+    Double sum = 0.0, minimum, maximum, average;
 
-
-
+    ExecutorService threadPool;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        threadPool = Executors.newFixedThreadPool(2);
+        handler = new Handler(getApplicationContext().getMainLooper());
+
         generate = findViewById(R.id.generate);
         seekbar = findViewById(R.id.seekBar);
 
         complexitylayout = findViewById(R.id.comp);
         complexity = complexitylayout.findViewById(R.id.compval);
-        complexity.setText(""+"0"+"   Times");
 
         pb = findViewById(R.id.progressBar);
 
@@ -53,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         avg = findViewById(R.id.average).findViewById(R.id.avgval);
 
         generate.setOnClickListener(this);
+
 
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -69,51 +66,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
+
         });
     }
 
     @Override
     public void onClick(View view) {
-        if(seekbar.getProgress() == 0){
-            min.setText("");
-            max.setText("");
-            avg.setText("");
-            return;
-        }
-        new Async().execute(seekbar.getProgress());
+        pb.setVisibility(View.VISIBLE);
+        threadPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                ArrayList<Double> numarray = HeavyWork.getArrayNumbers(seekbar.getProgress());
+                System.out.println(numarray);
+                sum = 0.0; minimum = numarray.get(0); maximum = numarray.get(0);
+                for(Double s : numarray){
+                    sum += s;
+                }
+                for(Double s : numarray){
+                    if(s < minimum) minimum = s;
+                    if(s > maximum) maximum = s;
+                }
+
+                average = sum/numarray.size();
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        pb.setVisibility(View.INVISIBLE);
+                        min.setText(""+minimum);
+                        max.setText(""+maximum);
+                        avg.setText(""+average);
+                    }
+                });
+            }
+        });
     }
 
-    protected class Async extends AsyncTask<Integer,String, ArrayList<Double>>{
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pb.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        protected void onPostExecute(ArrayList<Double> numarray) {
-            pb.setVisibility(View.INVISIBLE);
-            min.setText(""+numarray.get(0));
-            max.setText(""+numarray.get(1));
-            avg.setText(""+numarray.get(2));
-        }
-
-        @Override
-        protected ArrayList<Double> doInBackground(Integer... integers) {
-            ArrayList<Double> numarray = HeavyWork.getArrayNumbers(integers[0]);
-            Double sum = 0.0, avg, min = numarray.get(0), max = numarray.get(0);
-            for(Double s : numarray){
-                sum += s;
-            }
-            for(Double s : numarray){
-                if(s < min) min = s;
-                if(s > max) max = s;
-            }
-
-            avg = sum/numarray.size();
-
-            return new ArrayList<>(Arrays.asList(min,max,avg));
-        }
-    }
 }

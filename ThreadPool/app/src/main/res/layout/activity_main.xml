@@ -10,9 +10,9 @@
         android:id="@+id/comp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +41,9 @@
         android:id="@+id/seekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:max="10"
         android:progress="0"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,9 +54,9 @@
         android:id="@+id/stats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,9 +91,9 @@
             android:id="@+id/maximum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/min">
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/min" >
 
             <TextView
                 android:id="@+id/max"
@@ -118,8 +118,8 @@
             android:id="@+id/average"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:orientation="horizontal"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/maximum">
 
             <TextView
@@ -144,12 +144,12 @@
 
     <Button
         android:id="@+id/generate"
-        android:layout_width="match_parent"
+        android:layout_width="361dp"
         android:layout_height="73dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
-        android:text="Generate Number Async Task"
+        android:layout_marginEnd="8dp"
+        android:text="Generate Number Thread"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,11 +159,12 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
-        android:layout_width="78dp"
-        android:layout_height="76dp"
+        android:layout_width="88dp"
+        android:layout_height="79dp"
         android:layout_marginTop="64dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

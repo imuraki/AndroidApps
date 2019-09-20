@@ -1,10 +1,10 @@
-package com.example.async;
+package com.example.inclass04;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class HeavyWork {
-    static final int COUNT = 9000000;
+    static final int COUNT = 900000;
     static ArrayList<Double> getArrayNumbers(int n){
         ArrayList<Double> returnArray = new ArrayList<>();
 
