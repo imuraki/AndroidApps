@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         complexitylayout = findViewById(R.id.comp);
         complexity = complexitylayout.findViewById(R.id.compval);
+        complexity.setText(""+"0"+"   Times");
 
         pb = findViewById(R.id.progressBar);
 
@@ -72,12 +73,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        if(seekbar.getProgress() == 0){
+            min.setText("");
+            max.setText("");
+            avg.setText("");
+            return;
+        }
+
         pb.setVisibility(View.VISIBLE);
         threadPool.execute(new Runnable() {
             @Override
             public void run() {
                 ArrayList<Double> numarray = HeavyWork.getArrayNumbers(seekbar.getProgress());
-                System.out.println(numarray);
                 sum = 0.0; minimum = numarray.get(0); maximum = numarray.get(0);
                 for(Double s : numarray){
                     sum += s;
