@@ -1,10 +1,11 @@
-package com.example.homework04;
+package com.example.homework03;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+
 public class HeavyWork {
-    static final int COUNT = 9000000;
+    static final int COUNT = 900000;
     static ArrayList<Double> getArrayNumbers(int n){
         ArrayList<Double> returnArray = new ArrayList<>();
 

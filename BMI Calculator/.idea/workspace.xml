@@ -9,7 +9,150 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38934f54-8a1a-4c38-856b-dc9335725a12" name="Default Changelist" comment="" />
+    <list default="true" id="38934f54-8a1a-4c38-856b-dc9335725a12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/androidTest/java/com/example/httpurlget/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/java/com/example/httpurlget/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/java/com/example/httpurlget/RequestParams.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/app/src/test/java/com/example/httpurlget/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTTPURLGET/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/androidTest/java/com/example/inclass05/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/java/com/example/inclass05/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/app/src/test/java/com/example/inclass05/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InClass05/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/androidTest/java/com/example/homework04/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/java/com/example/homework04/AddMovieActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/java/com/example/homework04/EditMovieActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/java/com/example/homework04/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/java/com/example/homework04/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/layout/activity_add_movie.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/layout/activity_edit_movie.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../My Favourite Movies/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ThreadPool/app/src/main/java/com/example/homework03/GetImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ThreadPool/app/src/test/java/com/example/homework03/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InClass04/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../InClass04/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreadPool/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ThreadPool/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreadPool/app/src/androidTest/java/com/example/homework04/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ThreadPool/app/src/androidTest/java/com/example/homework03/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreadPool/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ThreadPool/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreadPool/app/src/main/java/com/example/homework04/HeavyWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ThreadPool/app/src/main/java/com/example/homework03/HeavyWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreadPool/app/src/main/java/com/example/homework04/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ThreadPool/app/src/main/java/com/example/homework03/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreadPool/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ThreadPool/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreadPool/app/src/test/java/com/example/homework04/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../My Favourite Movies/app/src/test/java/com/example/homework04/ExampleUnitTest.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +162,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="df7dfa27" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -32,8 +175,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/homework01/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+            <state relative-caret-position="247">
+              <caret line="51" column="60" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -53,6 +196,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>tv_weight</find>
+      <find>setError</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,9 +219,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
-    <option name="y" value="30" />
-    <option name="width" value="1260" />
-    <option name="height" value="700" />
+    <option name="width" value="1675" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -85,7 +228,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -120,10 +262,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.updates" />
@@ -235,7 +379,7 @@
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.22303207" />
+      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.055393588" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -256,8 +400,8 @@
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-28/java/lang/Integer.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/homework01/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+        <state relative-caret-position="247">
+          <caret line="51" column="60" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="60" />
         </state>
       </provider>
     </entry>
