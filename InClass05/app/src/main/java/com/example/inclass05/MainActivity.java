@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentimage = findViewById(R.id.resultimage);
         selectedkeyword = findViewById(R.id.search);
 
-         = findViewById(R.id.progressBar);
+        pb = findViewById(R.id.progressBar);
 
         prev = findViewById(R.id.prev);
         next = findViewById(R.id.next);
@@ -108,13 +108,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.prev){
             index = index - 1;
             if(index < 0){
-                index = index + imagelist.size();
+                index = imagelist.size() - 1;
             }
         }
         else if(v.getId() == R.id.next){
             //index = (index + 1)%imagelist.size();
             index = index + 1;
-            if(index == imagelist.size()){
+            if(index >= imagelist.size()){
                 index = 0;
             }
         }
