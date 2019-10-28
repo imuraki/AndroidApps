@@ -53,6 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public Button button;
 
         TrackClickListener trackClickListener;
+
         public MyViewHolder(View v, TrackClickListener trackClickListener) {
             super(v);
 

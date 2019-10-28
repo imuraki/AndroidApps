@@ -25,7 +25,7 @@ public class AddMovieActivity extends AppCompatActivity implements AdapterView.O
 
     Spinner spinner;
     TextView ratingvalue;
-    ArrayList<String> items; ;
+    ArrayList<String> items;
     SeekBar seekbar;
     int progressval = 0;
     int title = 100;
