@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements UsersFragment.OnL
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_airport);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_group);
 
-        i = new Intent(MainActivity.this, ChatActivity.class);
-        startActivity(i);
+        //i = new Intent(MainActivity.this, ChatActivity.class);
+        //startActivity(i);
 
     }
 
