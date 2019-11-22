@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import com.example.homework07.dummy.DummyContent;
 import com.example.homework07.dummy.DummyContent.DummyItem;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +37,10 @@ public class TripsFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    private ArrayList<Trip>trips = new ArrayList<Trip>(){{
-        add(new Trip("IS ONLY", "los angeles"));
-        add(new Trip("IS ONLY", "los angeles"));
-        add(new Trip("IS ONLY", "los angeles"));
-        add(new Trip("IS ONLY", "los angeles"));
-    }};
+    private ArrayList<Trip>trips = new ArrayList<Trip>();
 
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    TripsRecyclerViewAdapter tripsRecyclerViewAdapter;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -73,18 +73,11 @@ public class TripsFragment extends Fragment {
         View view = inflater.inflate(R.layout.trip_item_list, container, false);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new TripsRecyclerViewAdapter(trips, mListener));
-        }
+
         return view;
     }
+
+
 
     @Override
     public void onAttach(Context context) {
@@ -95,6 +88,34 @@ public class TripsFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        tripsRecyclerViewAdapter.startListening();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (view instanceof RecyclerView) {
+            Context context = view.getContext();
+            RecyclerView recyclerView = (RecyclerView) view;
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            Query query = FirebaseFirestore.getInstance()
+                    .collection("trips");
+            FirestoreRecyclerOptions<Trip> options = new FirestoreRecyclerOptions.Builder<Trip>().setQuery(query, Trip.class).build();
+            tripsRecyclerViewAdapter = new TripsRecyclerViewAdapter(options, mListener);
+            recyclerView.setAdapter(tripsRecyclerViewAdapter);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        tripsRecyclerViewAdapter.stopListening();
     }
 
     @Override

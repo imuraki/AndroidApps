@@ -2,11 +2,25 @@ package com.example.homework07;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class TripPagerAdapter extends FragmentStatePagerAdapter {
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ArrayList<Trip> trips = new ArrayList<>();
+    Fragment fragment;
 
     public TripPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -14,7 +28,6 @@ public class TripPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        Fragment fragment;
         if(i == 0)
             fragment = new TripsFragment();
         else if(i == 1)

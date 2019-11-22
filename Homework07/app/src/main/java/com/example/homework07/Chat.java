@@ -4,13 +4,22 @@ import java.util.Date;
 
 public class Chat {
 
-    String sender, message;
+    String userid,sender, message;
     Date timestamp;
 
-    public Chat(String sender, String message, Date timestamp) {
+    public Chat(String userid, String sender, String message, Date timestamp) {
+        this.userid = userid;
         this.sender = sender;
         this.message = message;
         this.timestamp = timestamp;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public Chat(){

@@ -1,9 +1,14 @@
 package com.example.homework07;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.homework07.dummy.DummyContent;
 import com.google.android.material.tabs.TabLayout;
@@ -12,6 +17,9 @@ public class TripActivity extends AppCompatActivity implements TripsFragment.OnL
 
     ViewPager trippager;
     TripPagerAdapter tripPagerAdapter;
+    Intent i;
+
+    String chatroomid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +34,34 @@ public class TripActivity extends AppCompatActivity implements TripsFragment.OnL
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(trippager);
 
+        if(getIntent() != null && getIntent().getExtras() != null){
+            chatroomid = ((Trip)getIntent().getSerializableExtra("selectedtrip")).chatroomid;
+        }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_trip_items, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        switch(item.getTitle().toString()){
+            case "chatroom":
+                i = new Intent(TripActivity.this, ChatActivity.class);
+                i.putExtra("chatroomid", chatroomid);
+                startActivity(i);
+        }
+
+        return true;
     }
 
     @Override

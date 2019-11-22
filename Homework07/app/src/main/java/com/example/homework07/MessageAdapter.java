@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import org.ocpsoft.prettytime.PrettyTime;
 
 import java.util.List;
@@ -20,6 +23,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     private List<Chat> mChat;
     PrettyTime p = new PrettyTime();
+    FirebaseUser user  = FirebaseAuth.getInstance().getCurrentUser();
 
     public MessageAdapter(List<Chat> mChat) {
         this.mChat = mChat;
@@ -28,8 +32,22 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_right, parent, false);
+        View view;
+        if(viewType == MSG_TYPE_RIGHT)
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_right, parent, false);
+        else
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_left, parent, false);
         return new ViewHolder(view);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+         super.getItemViewType(position);
+
+         if(mChat.get(position).getUserid().equals(user.getUid()))
+             return MSG_TYPE_RIGHT;
+         else
+             return MSG_TYPE_LEFT;
     }
 
     @Override

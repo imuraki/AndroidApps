@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button signOut;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    GoogleSignInClient mGoogleSignInClient;;
+    GoogleSignInClient mGoogleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +66,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-firebaseAuth.addAuthStateListener(mAuthListener);
+        firebaseAuth.addAuthStateListener(mAuthListener);
     }
 }

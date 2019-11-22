@@ -112,22 +112,23 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
                         }
                         else
                         {
-                            userProfile();
 
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            String UserID=user.getEmail().replace("@","").replace(".","");
-                            DocumentReference ref1= db.collection("Users").document(UserID);
+                            //String UserID=user.getEmail().replace("@","").replace(".","");
+                            String userID = user.getUid();
+                            DocumentReference ref1= db.collection("Users").document(userID);
 
                             userDetails.put("First_Name",firstName.getText().toString().trim());
                             userDetails.put("Last_Name",lastName.getText().toString().trim());
                             userDetails.put("Email",user.getEmail());
-                            userDetails.put("User_ID",UserID);
                             ref1.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     //Log.d("TESTING", "Sign up Successful" + task.isSuccessful());
+                                    startActivity(new Intent(SignUpActivity.this,MainActivity.class));
                                     Toast.makeText(SignUpActivity.this, "Account Created ", Toast.LENGTH_SHORT).show();
                                     Log.d("TESTING", "Created Account");
+                                    finish();
                                 }
                             });
                         }
@@ -135,24 +136,4 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
                 });
     }
 
-    private void userProfile()
-    {
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        if(user!= null)
-        {
-            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                    .setDisplayName(firstName.getText().toString().trim())
-                    .build();
-
-            user.updateProfile(profileUpdates)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Log.d("TESTING", "User profile updated.");
-                            }
-                        }
-                    });
-        }
-    }
 }

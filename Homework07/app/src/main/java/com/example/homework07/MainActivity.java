@@ -1,5 +1,6 @@
 package com.example.homework07;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -7,9 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.homework07.dummy.DummyContent;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity implements UsersFragment.OnListFragmentInteractionListener, TripsFragment.OnListFragmentInteractionListener{
@@ -17,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements UsersFragment.OnL
     ViewPager viewPager;
     ViewPagerAdapter viewPagerAdapter;
     Intent i;
+
+    String userid;
 
     static FirebaseFirestore db = FirebaseFirestore.getInstance();
     static String TAG = "tag";
@@ -37,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements UsersFragment.OnL
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_airport);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_group);
 
+        if(getIntent() != null && getIntent().getExtras() != null){
+            userid = getIntent().getStringExtra("userid");
+        }
+
         //i = new Intent(MainActivity.this, ChatActivity.class);
         //startActivity(i);
 
@@ -50,6 +62,31 @@ public class MainActivity extends AppCompatActivity implements UsersFragment.OnL
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+         super.onOptionsItemSelected(item);
+
+         switch(item.getTitle().toString()){
+             case "addtrip":
+                  i = new Intent(MainActivity.this, CreateTripActivity.class);
+                  startActivity(i);
+                  break;
+             case "logout":
+                 FirebaseAuth.getInstance().signOut();
+                 /*mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                     @Override
+                     public void onComplete(@NonNull Task<Void> task) {
+                         Toast.makeText(HomeActivity.this, "User Signed Out", Toast.LENGTH_SHORT).show();
+
+                     }
+                 });*/
+                 finish();
+                 break;
+         }
+
+         return true;
+    }
+
+    @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
     }
@@ -58,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements UsersFragment.OnL
     public void onListFragmentInteraction(Trip item) {
 
         i = new Intent(MainActivity.this, TripActivity.class);
+        i.putExtra("selectedtrip", item);
         startActivity(i);
 
     }

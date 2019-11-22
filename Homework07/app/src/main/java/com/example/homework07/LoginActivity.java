@@ -53,26 +53,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         password = findViewById(R.id.editTextPassword);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        mAuthListener=new FirebaseAuth.AuthStateListener() {
+        if(firebaseAuth.getCurrentUser()!=null){
+            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+        }
+       /* mAuthListener=new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()!=null){
 
-                    startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
                     finishAffinity();
                 }
 
             }
-        };
-        user = firebaseAuth.getCurrentUser();
-        Log.d("LOGGED", "user: " + user);
-
-
-        //Setting the tags for Current User.
-        if (user != null) {
-            LoggedIn_User_Email =user.getEmail();
-        }
-        //  OneSignal.sendTag("User_ID", LoggedIn_User_Email);
+        };*/
 
         btnSignUp.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
@@ -159,14 +153,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onStart() {
         super.onStart();
-        firebaseAuth.addAuthStateListener(mAuthListener);
+        //firebaseAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
     public void onClick(View view) {
         if(view.getId()== R.id.buttonSignUp){
             startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
-            finishAffinity();
         }else{
             String getemail = email.getText().toString().trim();
             String getepassword = password.getText().toString().trim();
@@ -208,7 +201,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         else {
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
                             i.putExtra("userid", task.getResult().getUser().getUid());
-                            finish();
                             startActivity(i);
                         }
                     }

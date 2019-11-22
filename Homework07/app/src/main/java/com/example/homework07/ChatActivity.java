@@ -15,10 +15,13 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -36,6 +39,11 @@ public class ChatActivity extends AppCompatActivity {
 
     EditText textsend;
     MessageAdapter messageAdapter;
+    String chatroomid;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference chatoomsref = db.collection("chatrooms");
+    FirebaseUser user  = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,30 +60,21 @@ public class ChatActivity extends AppCompatActivity {
         messageAdapter = new MessageAdapter(mchat);
         recyclerView.setAdapter(messageAdapter);
 
+        if(getIntent() != null && getIntent().getExtras() != null){
+            chatroomid = getIntent().getStringExtra("chatroomid");
+        }
+
         findViewById(R.id.send).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Chat chat = new Chat("Akhil", textsend.getText().toString(), new Date());
-                MainActivity.db.collection("chats").document(UUID.randomUUID().toString())
-                        .set(chat)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(ChatActivity.this, "Message sent", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ChatActivity.this, "Message sent", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                Chat chat = new Chat(user.getUid(),user.getDisplayName(), textsend.getText().toString(), new Date());
+                chatoomsref.document(chatroomid).collection("chats").add(chat);
             }
         });
 
 
 
-        final CollectionReference docRef = MainActivity.db.collection("chats");
+        final CollectionReference docRef = chatoomsref.document(chatroomid).collection("chats");
         docRef.orderBy("timestamp", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
