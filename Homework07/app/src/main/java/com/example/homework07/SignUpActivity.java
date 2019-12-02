@@ -50,6 +50,8 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
         signUp.setOnClickListener(this);
         cancel.setOnClickListener(this);
 
+        setTitle("Trip Planner");
+
     }
 
     @Override
@@ -118,10 +120,10 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
                             String userID = user.getUid();
                             DocumentReference ref1= db.collection("Users").document(userID);
 
-                            userDetails.put("First_Name",firstName.getText().toString().trim());
-                            userDetails.put("Last_Name",lastName.getText().toString().trim());
-                            userDetails.put("Email",user.getEmail());
-                            ref1.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            /*userDetails.put("First_Name",firstname.getText().toString().trim());
+                            userDetails.put("Last_Name",lastname.getText().toString().trim());
+                            userDetails.put("Email",user.getEmail());*/
+                            ref1.set(new User(firstName.getText().toString().trim(), lastName.getText().toString().trim(), user.getEmail(), userID, null)).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     //Log.d("TESTING", "Sign up Successful" + task.isSuccessful());
@@ -132,8 +134,32 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
                                 }
                             });
                         }
+
+                        userProfile();
                     }
                 });
+    }
+
+    private void userProfile()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user!= null)
+        {
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(firstName.getText().toString().trim())
+                    //.setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))  // here you can set image link also.
+                    .build();
+
+            user.updateProfile(profileUpdates)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d("TESTING", "User profile updated.");
+                            }
+                        }
+                    });
+        }
     }
 
 }

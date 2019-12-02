@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ImageIt
         }
     }
 
-    private void uploadImage(Bitmap photoBitmap) {
+    private void uploadImage(Bitmap  photoBitmap) {
 
 
         imageRepo = storageReference.child("images/" + UUID.randomUUID()+ ".jpg");

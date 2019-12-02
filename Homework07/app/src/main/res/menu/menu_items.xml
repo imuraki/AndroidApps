@@ -13,8 +13,10 @@
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menuitem3"
-        android:icon="@drawable/ic_logout"
-        android:title="logout"
-        app:showAsAction="ifRoom" />
+        android:title="logout" />
+
+    <item android:id="@+id/menuitem4"
+        android:title="Approve Requests"
+         />
 
 </menu>

@@ -15,9 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.homework07.dummy.DummyContent;
-import com.example.homework07.dummy.DummyContent.DummyItem;
+
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -38,6 +38,8 @@ public class TripsFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     private ArrayList<Trip>trips = new ArrayList<Trip>();
+    private boolean isMyTrip;
+    Query query;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     TripsRecyclerViewAdapter tripsRecyclerViewAdapter;
@@ -47,6 +49,11 @@ public class TripsFragment extends Fragment {
      */
     public TripsFragment() {
     }
+
+    public TripsFragment(boolean isMyTrip){
+        this.isMyTrip = isMyTrip;
+    }
+
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
@@ -104,8 +111,15 @@ public class TripsFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            Query query = FirebaseFirestore.getInstance()
-                    .collection("trips");
+            if(isMyTrip){
+                query = FirebaseFirestore.getInstance()
+                        .collection("trips").whereArrayContains("users", FirebaseAuth.getInstance().getCurrentUser().getUid());
+            }
+            else {
+                query = FirebaseFirestore.getInstance()
+                        .collection("trips");
+            }
+
             FirestoreRecyclerOptions<Trip> options = new FirestoreRecyclerOptions.Builder<Trip>().setQuery(query, Trip.class).build();
             tripsRecyclerViewAdapter = new TripsRecyclerViewAdapter(options, mListener);
             recyclerView.setAdapter(tripsRecyclerViewAdapter);

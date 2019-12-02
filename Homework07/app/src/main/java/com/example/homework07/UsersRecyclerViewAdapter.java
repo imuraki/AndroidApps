@@ -1,45 +1,58 @@
 package com.example.homework07;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.homework07.UsersFragment.OnListFragmentInteractionListener;
-import com.example.homework07.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link } and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class UsersRecyclerViewAdapter extends RecyclerView.Adapter<UsersRecyclerViewAdapter.ViewHolder> {
+public class UsersRecyclerViewAdapter extends FirestoreRecyclerAdapter<User, UsersRecyclerViewAdapter.ViewHolder> {
+    /**
+     * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link
+     * FirestoreRecyclerOptions} for configuration options.
+     *
+     * @param options
+     */
+    String tripid;
+    UsersFragment.OnListFragmentInteractionListener mListener;
 
-    private final List<DummyItem> mValues;
-    private final OnListFragmentInteractionListener mListener;
-
-    public UsersRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
-        mListener = listener;
+    public UsersRecyclerViewAdapter(@NonNull FirestoreRecyclerOptions<User> options, UsersFragment.OnListFragmentInteractionListener mListener, String tripid) {
+        super(options);
+        this.mListener = mListener;
+        this.tripid = tripid;
     }
 
-    @Override
+
+
+
+
+/*    public UsersRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+        mValues = items;
+        mListener = listener;
+    }*/
+
+/*    @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_users, parent, false);
         return new ViewHolder(view);
-    }
+    }*/
 
-    @Override
+/*    @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
-
+        holder.user.setText(mValues.get(position).id);
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,29 +63,44 @@ public class UsersRecyclerViewAdapter extends RecyclerView.Adapter<UsersRecycler
                 }
             }
         });
+    }*/
+
+    @NonNull
+    @Override
+    public UsersRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.fragment_users, parent, false);
+        return new UsersRecyclerViewAdapter.ViewHolder(view);
     }
 
     @Override
-    public int getItemCount() {
-        return mValues.size();
+    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull final User model) {
+        holder.user.setText(model.firstname + " " + model.lastname);
+
+        if(this.tripid == null){
+            holder.mView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    model.setSelected(!model.isSelected());
+                    v.setBackgroundColor(model.isSelected() ? Color.CYAN : Color.WHITE);
+                    mListener.onListFragmentInteraction(model);
+                }
+            });
+        }
+        else
+            holder.mView.setOnClickListener(null);
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
+        public final TextView user;
+
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            user = view.findViewById(R.id.user);
         }
     }
 }

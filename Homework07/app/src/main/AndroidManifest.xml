@@ -26,6 +26,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".TripActivity" />
+        <activity android:name=".MyProfile" />
         <activity android:name=".MainActivity"></activity>
     </application>
 

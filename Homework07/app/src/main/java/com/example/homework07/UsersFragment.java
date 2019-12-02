@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homework07.dummy.DummyContent;
-import com.example.homework07.dummy.DummyContent.DummyItem;
+
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.List;
 
@@ -30,12 +32,22 @@ public class UsersFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    UsersRecyclerViewAdapter usersRecyclerViewAdapter;
+    String tripid;
+    Query query;
+
+
+    boolean isCreateTrip;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public UsersFragment() {
+    }
+
+    public UsersFragment(String tripid){
+        this.tripid = tripid;
     }
 
     // TODO: Customize parameter initialization
@@ -46,6 +58,18 @@ public class UsersFragment extends Fragment {
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        usersRecyclerViewAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        usersRecyclerViewAdapter.stopListening();
     }
 
     @Override
@@ -66,12 +90,19 @@ public class UsersFragment extends Fragment {
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            if(this.tripid != null) {
+                query = FirebaseFirestore.getInstance()
+                        .collection("Users").whereArrayContains("trips", tripid);
             }
-            recyclerView.setAdapter(new UsersRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            else{
+                query = FirebaseFirestore.getInstance()
+                        .collection("Users");
+            }
+
+            FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>().setQuery(query, User.class).build();
+            usersRecyclerViewAdapter = new UsersRecyclerViewAdapter(options, mListener, this.tripid);
+            recyclerView.setAdapter(usersRecyclerViewAdapter);
         }
         return view;
     }
@@ -94,6 +125,14 @@ public class UsersFragment extends Fragment {
         mListener = null;
     }
 
+    void setCreateTrip(boolean isCreateTrip){
+        this.isCreateTrip = isCreateTrip;
+    }
+
+    public boolean isCreateTrip() {
+        return isCreateTrip;
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -106,6 +145,6 @@ public class UsersFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(User item);
     }
 }

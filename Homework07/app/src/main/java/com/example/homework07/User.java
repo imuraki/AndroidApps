@@ -1,35 +1,57 @@
 package com.example.homework07;
 
+import java.util.ArrayList;
+
 public class User {
 
-    public String firstName,lastName;
+    public String firstname, lastname, photourl;
     public String email,userId;
+    public ArrayList<String>trips = new ArrayList<String>();
+    private boolean isSelected = false;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public User(String firstName, String lastName, String email,String userId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String firstname, String lastname, String email, String userId, String photourl) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.photourl = photourl;
         this.email = email;
         this.userId = userId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setTrip(String trip) {
+        this.trips.add(trip);
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+
+    public ArrayList<String> getTrips() {
+        return trips;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getPhotourl() {
+        return photourl;
+    }
+
+    public void setPhotourl(String photourl) {
+        this.photourl = photourl;
     }
 
     public String getEmail() {
@@ -46,6 +68,19 @@ public class User {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public void setTrips(ArrayList<String> trips) {
+        this.trips = trips;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+
+    public boolean isSelected() {
+        return isSelected;
     }
 }
 

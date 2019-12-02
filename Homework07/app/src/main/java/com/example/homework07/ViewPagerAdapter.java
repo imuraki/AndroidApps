@@ -28,18 +28,16 @@ public class ViewPagerAdapter  extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int i) {
         if(i == 0)
-            fragment = new TripsFragment();
+            fragment = new TripsFragment(false);
         else if(i == 1)
-            fragment = new UsersFragment();
-        else
-            fragment = new TripsFragment();
+            fragment = new TripsFragment(true);
 
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Override

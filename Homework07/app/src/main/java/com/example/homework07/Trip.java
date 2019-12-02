@@ -7,24 +7,36 @@ import java.util.ArrayList;
 
 public class Trip implements Serializable {
 
-    String title, location,coverphotourl, userid, chatroomid;
+    String title, location,coverphotourl, creator, chatroomid, tripid;
     ArrayList<String> users = new ArrayList<String>();
     ArrayList<String> triprequests = new ArrayList<String>();
 
+    public String getTripid() {
+        return tripid;
+    }
+
+    public void setTripid(String tripid) {
+        this.tripid = tripid;
+    }
 
     public ArrayList<String> getUsers() {
         return users;
     }
 
-    public void setUser(String user) {
-        this.users.add(user);
+    public ArrayList<String> getTriprequests() {
+        return triprequests;
     }
 
-    public Trip(String title, String location, String coverphotourl, String userid, String chatroomid) {
+    public void setUser(ArrayList<String> users) {
+        this.users.addAll(users);
+    }
+
+    public Trip(String tripid, String title, String location, String coverphotourl, String creator, String chatroomid) {
+        this.tripid = tripid;
         this.title = title;
         this.location = location;
         this.coverphotourl = coverphotourl;
-        this.userid = userid;
+        this.creator = creator;
         this.chatroomid = chatroomid;
     }
 
@@ -52,12 +64,12 @@ public class Trip implements Serializable {
         return coverphotourl;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
-    public String getUserid() {
-        return userid;
+    public String getCreator() {
+        return creator;
     }
 
     public void setTitle(String title) {

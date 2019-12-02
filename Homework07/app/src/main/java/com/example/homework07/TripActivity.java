@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.example.homework07.dummy.DummyContent;
 import com.google.android.material.tabs.TabLayout;
+import com.squareup.picasso.Picasso;
 
 public class TripActivity extends AppCompatActivity implements TripsFragment.OnListFragmentInteractionListener, UsersFragment.OnListFragmentInteractionListener{
 
@@ -20,6 +23,11 @@ public class TripActivity extends AppCompatActivity implements TripsFragment.OnL
     Intent i;
 
     String chatroomid;
+    String tripid;
+
+    Trip trip;
+    ImageView tripcoverphoto;
+    TextView title, location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +35,42 @@ public class TripActivity extends AppCompatActivity implements TripsFragment.OnL
         setContentView(R.layout.activity_trip);
 
 
+        if(getIntent() != null && getIntent().getExtras() != null){
+            trip = ((Trip)getIntent().getSerializableExtra("selectedtrip"));
+        }
+
+        tripcoverphoto = findViewById(R.id.tripcardview).findViewById(R.id.tripcoverphoto);
+        title = findViewById(R.id.tripcardview).findViewById(R.id.tripitemtitle);
+        location = findViewById(R.id.tripcardview).findViewById(R.id.location);
+
+        chatroomid = trip.chatroomid;
+        tripid = trip.tripid;
+
+        Picasso.get().load(trip.getCoverphotourl()).into(tripcoverphoto);
+        title.setText(trip.title);
+        location.setText(trip.location);
+
         trippager = findViewById(R.id.trippager);
-        tripPagerAdapter = new TripPagerAdapter(getSupportFragmentManager());
+        tripPagerAdapter = new TripPagerAdapter(getSupportFragmentManager(), tripid);
         trippager.setAdapter(tripPagerAdapter);
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(trippager);
 
-        if(getIntent() != null && getIntent().getExtras() != null){
-            chatroomid = ((Trip)getIntent().getSerializableExtra("selectedtrip")).chatroomid;
-        }
+        findViewById(R.id.chatroom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i = new Intent(TripActivity.this, ChatActivity.class);
+                i.putExtra("chatroomid", chatroomid);
+                startActivity(i);
+            }
+        });
+
+        setTitle("Trip Room");
 
     }
 
-    @Override
+/*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
@@ -62,7 +92,7 @@ public class TripActivity extends AppCompatActivity implements TripsFragment.OnL
         }
 
         return true;
-    }
+    }*/
 
     @Override
     public void onListFragmentInteraction(Trip item) {
@@ -70,7 +100,7 @@ public class TripActivity extends AppCompatActivity implements TripsFragment.OnL
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(User item) {
 
     }
 }

@@ -7,7 +7,83 @@
     android:orientation="vertical"
     tools:context=".TripActivity">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tripcardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:id="@+id/cardlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/tripcoverphoto"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/ic_launcher_round" />
+
+
+            <TextView
+                android:id="@+id/tripitemtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Daily Check In"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:id="@+id/locationlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/pindrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/ic_pin_drop" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:text="TextView"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/chatroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/design_default_color_primary_dark"
+                android:text="CHAT ROOM"
+                android:textColor="#ffffff"
+                android:theme="@style/Widget.AppCompat.Button.Borderless.Colored">
+
+            </Button>
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+<!--    <LinearLayout
         android:id="@+id/tripbglayout"
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -22,7 +98,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="Daily Check In"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textSize="30sp" />
 
         <LinearLayout
@@ -49,7 +125,7 @@
                 android:text="TextView"
                 android:textColor="#ffffff" />
         </LinearLayout>
-    </LinearLayout>
+    </LinearLayout>-->
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"

@@ -21,17 +21,19 @@ public class TripPagerAdapter extends FragmentStatePagerAdapter {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ArrayList<Trip> trips = new ArrayList<>();
     Fragment fragment;
+    String tripid;
 
-    public TripPagerAdapter(FragmentManager fm) {
+    public TripPagerAdapter(FragmentManager fm, String tripid) {
         super(fm);
+        this.tripid = tripid;
     }
 
     @Override
     public Fragment getItem(int i) {
         if(i == 0)
-            fragment = new TripsFragment();
+            fragment = new UsersFragment(tripid);
         else if(i == 1)
-            fragment = new UsersFragment();
+            fragment = new UsersFragment(tripid);
         else
             fragment = new TripsFragment();
 
